@@ -5,10 +5,8 @@ describe("Tamagocci", function() {
         , initialHappiness = 5
         , initialAge = 0
         , initialMinWeight = 1
-        , initialMaxWeight = 10
-        , goodPicture = "pk_good.gif"
-        , badPicture = "pk_bad.gif"
-        , deadPicture = "pk_dead.gif";
+        , initialMaxWeight = 10;
+
 
     beforeEach(function() {
         tamagocci = new Tamagocci();
@@ -102,43 +100,6 @@ describe("Tamagocci", function() {
 
         // Then
         expect(tamagocci.isDead()).toBe(false);
-    });
-
-    it("must return a happy picture after birth", function() {
-        // Then
-        expect(tamagocci.getPicture()).toBe(goodPicture);
-    });
-
-    it("must return a bad picture when weight is less than 3 units after min weight", function() {
-        // When
-        tamagocci.weight = tamagocci.minWeight + 2;
-
-        // Then
-        expect(tamagocci.getPicture()).toBe(badPicture);
-    });
-
-    it("must return a bad picture when weight is more than 3 units before max weight", function() {
-        // When
-        tamagocci.weight = tamagocci.maxWeight - 2;
-
-        // Then
-        expect(tamagocci.getPicture()).toBe(badPicture);
-    });
-
-    it("must return a bad picture when happiness is lesser than 3", function() {
-        // When
-        tamagocci.happiness = 2;
-
-        // Then
-        expect(tamagocci.getPicture()).toBe(badPicture);
-    });
-
-    it("must return a dead picture when is dead", function() {
-        // When
-        tamagocci.happiness = 0;
-
-        // Then
-        expect(tamagocci.getPicture()).toBe(deadPicture);
     });
 
 });

@@ -37,3 +37,34 @@ Tamagocci.prototype.getPicture = function () {
 
     return 'pk_good.gif';
 };
+
+
+function Pikachu() {
+    Tamagocci.apply(this);
+}
+
+Pikachu.prototype = Object.create(Tamagocci.prototype)
+
+Pikachu.prototype.getPicture = function () {
+    if (this.weight < this.minWeight + 3) return 'pk_bad.gif';
+    if (this.weight > this.maxWeight - 3) return 'pk_bad.gif';
+
+    return Tamagocci.prototype.getPicture.apply(this);
+};
+
+
+function HelloKitty() {
+    Tamagocci.apply(this)
+}
+
+HelloKitty.prototype = Object.create(Tamagocci.prototype)
+
+HelloKitty.prototype.getPicture = function () {
+    if (this.isDead())                    return 'hk_dead.png';
+
+    if (this.weight < this.minWeight + 3) return 'hk_bad.gif';
+    if (this.weight > this.maxWeight - 3) return 'hk_bad.gif';
+    if (this.happiness < 3)               return 'hk_bad.gif';
+
+    return 'hk_good.gif';
+};
