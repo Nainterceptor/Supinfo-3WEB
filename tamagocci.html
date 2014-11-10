@@ -11,6 +11,9 @@
 				, playButton = document.getElementById("play-button");
 
         	var tamagocci = new HelloKitty();
+            tamagocci.ondie = function() {
+                stopTheGame();
+            }
 
         	update();
 
@@ -35,20 +38,16 @@
         	}
 
         	function displayOrRefreshTamagocciInfo() {
-        		var tamagocciInfoSpans = document.getElementById("information").children;
-	        	tamagocciInfoSpans[1].innerHTML = tamagocci.age;
-	        	tamagocciInfoSpans[3].innerHTML = tamagocci.minWeight;
-	        	tamagocciInfoSpans[5].innerHTML = tamagocci.weight;
-	        	tamagocciInfoSpans[7].innerHTML = tamagocci.maxWeight;
-	        	tamagocciInfoSpans[9].innerHTML = tamagocci.happiness;
+	        	document.getElementById("age").innerHTML = tamagocci.age;
+	        	document.getElementById("minWeight").innerHTML = tamagocci.minWeight;
+	        	document.getElementById("weight").innerHTML = tamagocci.weight;
+	        	document.getElementById("maxWeight").innerHTML = tamagocci.maxWeight;
+	        	document.getElementById("happiness").innerHTML = tamagocci.happiness;
         	}
 
         	function update() {
         		displayOrRefreshTamagocciInfo();
         		displayOrRefreshTamagocciPicture();
-        		if(tamagocci.isDead()) {
-        			stopTheGame();
-        		}
         	}
 
         	function stopTheGame() {
@@ -64,11 +63,11 @@
         <h1>Tamagocci</h1>
     	<img id="picture" />
     	<div id="information">
-            <strong>Age:</strong><span></span>
-            <strong>Min Weight:</strong><span></span>
-            <strong>Weight:</strong><span></span>
-            <strong>Max Weight:</strong><span></span>
-            <strong>Happiness:</strong><span></span>
+            <strong>Age:</strong><span id="age"></span>
+            <strong>Min Weight:</strong><span id="minWeight"></span>
+            <strong>Weight:</strong><span id="weight"></span>
+            <strong>Max Weight:</strong><span id="maxWeight"></span>
+            <strong>Happiness:</strong><span id="happiness"></span>
         </div>
     	<section id="actions">
             <strong>Actions</strong>

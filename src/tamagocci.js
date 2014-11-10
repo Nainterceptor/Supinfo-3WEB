@@ -1,4 +1,50 @@
 function Tamagocci() {
+    var self = this;
+
+    function checkDeath() {
+        if (self.weight < self.minWeight
+            || self.weight > self.maxWeight
+            || self.happiness == 0) {
+            self.isDead = true;
+            if (self.ondie) self.ondie();
+        }
+        else {
+            self.isDead = false;
+        }
+    }
+
+    var weight, age, happiness;
+    Object.defineProperties(this, {
+        weight: {
+            get: function () {
+                return weight;
+            },
+            set: function (newWeight) {
+                weight = newWeight;
+                checkDeath();
+            }
+        },
+        age: {
+            get: function () {
+                return age;
+            },
+            set: function (newAge) {
+                age = newAge;
+                checkDeath();
+            }
+        },
+        happiness: {
+            get: function () {
+                return happiness;
+            },
+            set: function (newHappiness) {
+                happiness = newHappiness;
+                checkDeath();
+            }
+        }
+    });
+
+    this.isDead = false;
     this.weight = 5;
     this.minWeight = 1;
     this.maxWeight = 10;
@@ -22,14 +68,8 @@ Tamagocci.prototype.becomeOlder = function () {
     this.happiness -= 1;
 };
 
-Tamagocci.prototype.isDead = function () {
-    return this.weight < this.minWeight
-        || this.weight > this.maxWeight
-        || this.happiness == 0;
-};
-
 Tamagocci.prototype.getPicture = function () {
-    if (this.isDead())                    return 'pk_dead.gif';
+    if (this.isDead)                     return 'pk_dead.gif';
 
     if (this.weight < this.minWeight + 3) return 'pk_bad.gif';
     if (this.weight > this.maxWeight - 3) return 'pk_bad.gif';
@@ -60,7 +100,7 @@ function HelloKitty() {
 HelloKitty.prototype = Object.create(Tamagocci.prototype)
 
 HelloKitty.prototype.getPicture = function () {
-    if (this.isDead())                    return 'hk_dead.png';
+    if (this.isDead)                     return 'hk_dead.png';
 
     if (this.weight < this.minWeight + 3) return 'hk_bad.gif';
     if (this.weight > this.maxWeight - 3) return 'hk_bad.gif';

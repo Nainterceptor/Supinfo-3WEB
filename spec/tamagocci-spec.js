@@ -54,7 +54,7 @@ describe("Tamagocci", function() {
         tamagocci.weight = tamagocci.minWeight - 1;
 
         // Then
-        expect(tamagocci.isDead()).toBe(true);
+        expect(tamagocci.isDead).toBe(true);
     });
 
     it("must die when weight get greater than max weight", function() {
@@ -62,7 +62,7 @@ describe("Tamagocci", function() {
         tamagocci.weight = tamagocci.maxWeight + 1;
 
         // Then
-        expect(tamagocci.isDead()).toBe(true);
+        expect(tamagocci.isDead).toBe(true);
     });
 
     it("must die when happiness fall to zero", function() {
@@ -70,12 +70,12 @@ describe("Tamagocci", function() {
         tamagocci.happiness = 0;
 
         // Then
-        expect(tamagocci.isDead()).toBe(true);
+        expect(tamagocci.isDead).toBe(true);
     });
 
     it("must not be dead when born", function() {
         // Then
-        expect(tamagocci.isDead()).toBe(false);
+        expect(tamagocci.isDead).toBe(false);
     });
 
     it("must not die when happiness equals 1", function() {
@@ -83,7 +83,7 @@ describe("Tamagocci", function() {
         tamagocci.happiness = 1;
 
         // Then
-        expect(tamagocci.isDead()).toBe(false);
+        expect(tamagocci.isDead).toBe(false);
     });
 
     it("must not die when weight equals max weight", function() {
@@ -91,7 +91,7 @@ describe("Tamagocci", function() {
         tamagocci.weight = tamagocci.maxWeight;
 
         // Then
-        expect(tamagocci.isDead()).toBe(false);
+        expect(tamagocci.isDead).toBe(false);
     });
 
     it("must not die when weight equals min weight", function() {
@@ -99,7 +99,20 @@ describe("Tamagocci", function() {
         tamagocci.weight = tamagocci.minWeight;
 
         // Then
-        expect(tamagocci.isDead()).toBe(false);
+        expect(tamagocci.isDead).toBe(false);
+    });
+
+    it("must execute ondie function on die event", function() {
+        // Given
+        var callback = function() { /* Callback function */ };
+        tamagocci.ondie = callback;
+        spyOn(tamagocci, 'ondie');
+
+        // When
+        tamagocci.happiness = 0;
+
+        // Then
+        expect(tamagocci.ondie).toHaveBeenCalled();
     });
 
 });
