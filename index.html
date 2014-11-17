@@ -1,0 +1,34 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Geolocation</title>
+    <script>
+        function locateUser() {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                console.log(latitude);
+                console.log(longitude);
+                var urlRequest = 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&sensor=false'
+
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var response = JSON.parse(xhr.responseText);
+
+                        document.getElementById('address').innerHTML = response.results[0].formatted_address
+
+                    }
+                };
+                xhr.open('GET', urlRequest, true);
+                xhr.send();
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="address"></div>
+<button onClick="locateUser()">Where am I ?</button>
+</body>
+</html>
