@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Video player</title>
+        <style type="text/css">
+            body {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="videoForm">
+            <input type="url" placeholder="Video url..." id="url"/>
+            <input type="submit" value="Play it !">
+        </form>
+
+        <video id="videoPlayer" controls>
+            Your browser have no support.
+        </video>
+
+        <script>
+            var videoForm = document.getElementById('videoForm');
+            videoForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                var url = document.getElementById('url').value;
+                var videoPlayer = document.getElementById('videoPlayer')
+                videoPlayer.setAttribute('src', url);
+                videoPlayer.play();
+            });
+        </script>
+    </body>
+</html>
