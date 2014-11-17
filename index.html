@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+    <style type="text/css">
+        body {
+            font-family: 'Helvetica', 'Verdana', serif;
+        }
+
+        label {
+            display: block;
+        }
+
+        div[role="alertdialog"] {
+            width: 600px;
+
+            box-shadow: 0px 0px 300px 100px #000;
+
+            position: absolute;
+            top: 100px;
+            left: 50%;
+
+            margin-left: -300px;
+            padding: 10px;
+
+            background: #FFF;
+        }
+
+        a[href="#close"] {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            display: block;
+            text-decoration: none;
+            color: red;
+            font-weight: bold;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<form id="eventForm">
+    <fieldset>
+        <label>
+            Name of the event: <input type="text" name="eventName" required/>
+        </label>
+        <label>
+            Start date: <input type="date" name="eventStartDate" required/>
+        </label>
+        <label>
+            End date: <input type="date" name="eventEndDate" required/>
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <label>
+            City: <input type="text" name="locationCity" required/>
+        </label>
+        <label>
+            Postal code: <input type="number" name="locationPostalCode" required/>
+        </label>
+        <label>
+            Box number: <input type="number" name="locationBoxNumber" required/>
+        </label>
+        <label>
+            Street: <input type="text" name="locationStreet" required/>
+        </label>
+    </fieldset>
+
+
+    <input type="submit"/>
+</form>
+
+<div role="alertdialog" aria-labelledby="dialogTitle" class="hide">
+    <a href="#close">x</a>
+
+    <h1 id="dialogTitle">Event informations</h1>
+
+    <p itemscope itemtype="http://schema.org/Event">
+
+    <p>
+        You're invited to the event <span itemprop="name"></span>. <br/>
+        Starting on <span itemprop="startDate"></span> and ending on <span itemprop="endDate"></span>.
+    </p>
+
+    <p itemprop="location" itemscope itemtype="http://schema.org/Place">
+        Location informations:
+          <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span itemprop="streetAddress"></span>,
+            <span itemprop="addressLocality"></span>,
+            <span itemprop="postalCode"></span>
+          </span>
+    </p>
+    </p>
+</div>
+
+
+<script type="text/javascript">
+    document.getElementById('eventForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var eventName = document.querySelector('input[name="eventName"]').value;
+        var eventStartDate = document.querySelector('input[name="eventStartDate"]').value;
+        var eventEndDate = document.querySelector('input[name="eventEndDate"]').value;
+        var locationCity = document.querySelector('input[name="locationCity"]').value;
+        var locationPostalCode = document.querySelector('input[name="locationPostalCode"]').value;
+        var locationBoxNumber = document.querySelector('input[name="locationBoxNumber"]').value;
+        var locationStreet = document.querySelector('input[name="locationStreet"]').value;
+
+        document.querySelector('span[itemprop="name"]').innerHTML = eventName;
+
+        document.querySelector('span[itemprop="startDate"]').innerHTML = eventStartDate;
+        document.querySelector('span[itemprop="startDate"]').setAttribute('content', eventStartDate);
+
+        document.querySelector('span[itemprop="endDate"]').innerHTML = eventEndDate;
+        document.querySelector('span[itemprop="endDate"]').setAttribute('content', eventStartDate);
+
+        document.querySelector('span[itemprop="streetAddress"]').innerHTML = locationBoxNumber + " " + locationStreet;
+
+        document.querySelector('span[itemprop="addressLocality"]').innerHTML = locationCity;
+
+        document.querySelector('span[itemprop="postalCode"]').innerHTML = locationPostalCode;
+
+
+        document.querySelector('div[role="alertdialog"]').className = "show";
+
+    });
+
+    document.querySelector('a[href="#close"]').addEventListener('click', function (event) {
+        event.preventDefault();
+
+        document.querySelector('div[role="alertdialog"]').className = "hide";
+    });
+
+</script>
+</body>
+</html>
