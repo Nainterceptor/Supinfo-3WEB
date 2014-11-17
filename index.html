@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>My amazing smiley in SVG</title>
+    <style>
+        svg {
+            width: 400px;
+            height: 400px;
+        }
+        text {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+<figure>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="gaussian1">
+                <feGaussianBlur stdDeviation="5"/>
+            </filter>
+        </defs>
+
+        <circle cx="200" cy="200" r="150" fill="yellow" stroke="black"/>
+
+        <polyline points="90,170 130,120 170,170" stroke="black" stroke-width="2" fill="none"/>
+        <polyline points="230,170 270,120 310,170" stroke="black" stroke-width="2" fill="none"/>
+
+        <circle cx="120" cy="230" r="30" fill="pink" filter="url(#gaussian1)"/>
+        <ellipse cx="200" cy="280" rx="20" ry="60" fill="black"/>
+        <circle cx="280" cy="230" r="30" fill="pink" filter="url(#gaussian1)"/>
+
+        <text x="220" y="230" fill="brown">SVG is amazing !</text>
+
+    </svg>
+</figure>
+</body>
+</html>
