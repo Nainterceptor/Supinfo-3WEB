@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>My amazing smiley in Canvas</title>
+
+    <style>
+        canvas {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas" width="400px" height="400px"></canvas>
+
+<script type="text/javascript">
+
+    window.addEventListener('load', function (event) {
+
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        // Head
+        context.fillStyle = "yellow";
+        context.strokeStyle = "black";
+        context.lineWidth = 2;
+        context.arc(200, 200, 150, Math.PI * 2, 0, false);
+        context.stroke();
+        context.fill();
+
+        // Eyes
+        context.moveTo(90, 170);
+        context.lineTo(130, 120);
+        context.moveTo(130, 120);
+        context.lineTo(170, 170);
+
+        context.moveTo(230, 170);
+        context.lineTo(270, 120);
+        context.moveTo(270, 120);
+        context.lineTo(310, 170);
+
+        context.stroke();
+
+        // Mouth
+        context.fillStyle = "black";
+        context.beginPath();
+        context.moveTo(180, 280);
+        context.quadraticCurveTo(200, 180, 220, 280);
+        context.closePath();
+        context.stroke();
+        context.fill();
+
+        context.beginPath();
+        context.moveTo(180, 280);
+        context.quadraticCurveTo(200, 380, 220, 280);
+        context.closePath();
+        context.stroke();
+        context.fill();
+
+        // Txt
+        context.font = "normal 20px Verdana";
+        context.fillStyle = "brown";
+        context.fillText("Powerful canvas !", 220, 240);
+
+    });
+
+</script>
+</body>
+</html>
