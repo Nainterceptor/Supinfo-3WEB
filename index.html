@@ -1,0 +1,56 @@
+<!Doctype html>
+<html>
+<head>
+    <script src="jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function () {
+            var getMessages = function () {
+                console.log("fetch");
+                jQuery.getJSON("messages", function (data) {
+                    var list = "";
+                    data.forEach(function (message) {
+                        list += "<li>" + message + "</li>";
+                    });
+
+                    jQuery("#messages").html(list);
+                });
+
+                setTimeout(getMessages, 5000);
+            };
+
+            getMessages();
+
+            jQuery("#messageForm").on('submit', function (event) {
+                event.preventDefault();
+
+                var message = JSON.stringify({
+                    message: jQuery("#message").val()
+                });
+
+                console.log(message);
+
+                jQuery.ajax({
+                    url: 'message',
+                    type: 'POST',
+                    data: message,
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json'
+                });
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+<ul id="messages">
+
+</ul>
+
+<form id="messageForm">
+    <label for="message">Message : </label>
+    <input type="text" id="message"/>
+    <input type="submit"/>
+</form>
+</body>
+</html>
