@@ -1,40 +1,68 @@
 <!Doctype html>
 <html>
 <head>
-    <script src="jquery-2.1.1.min.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            var websocket = new WebSocket('ws://localhost:1337', 'echo-protocol');
-
-            websocket.onmessage = function (evt) {
-                var element = jQuery('<li>' + evt.data + '</li>');
-                jQuery("#messages").append(element);
-            };
-
-            jQuery.getJSON('messages', function (data) {
-                var list = '';
-                data.forEach(function (message) {
-                    list += '<li>' + message + '</li>';
-                });
-                jQuery('#messages').html(list);
-            });
-
-            jQuery("#messageForm").on('submit', function (event) {
-                event.preventDefault();
-                websocket.send(jQuery("#message").val());
-            });
-        });
-    </script>
+    <title>Chat</title>
+    <style>
+        .chat {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<ul id="messages">
+<div class="connection">
+    <form id="connection">
+        <input type="text" id="username" placeholder="Username"/>
+        <input type="submit" value="Connect !"/>
+    </form>
+</div>
 
-</ul>
+<div class="chat">
+    <form id="messageForm">
+        <input type="text" id="message" placeholder="Message..."/>
+        <input type="submit" value="Send !"/>
+    </form>
+    <ul id="messages">
+    </ul>
+</div>
 
-<form id="messageForm">
-    <label for="message">Message : </label>
-    <input type="text" id="message"/>
-    <input type="submit"/>
-</form>
+<script src="/socket.io/socket.io.js"></script>
+<script src="jquery-2.1.1.min.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        var socket = io.connect('http://localhost');
+
+        jQuery('#connection').on('submit', function (event) {
+            event.preventDefault();
+
+            var username = jQuery('#username').val();
+            if (username == '') return;
+            socket.emit('join', username);
+
+            jQuery('.connection').hide();
+            jQuery('.chat').show();
+
+            jQuery('#messageForm').on('submit', function (event) {
+                event.preventDefault();
+
+                var message = jQuery('#message').val();
+                if (message == '') return;
+                socket.emit('message', {name: username, message: message});
+            });
+
+            socket.on('join', function (data) {
+                var li = jQuery('<li>').text(data + ' joined !');
+
+                jQuery('#messages').prepend(li);
+            });
+
+            socket.on('message', function (data) {
+                var li = jQuery('<li>').text(data.name + ' : ' + data.message);
+
+                jQuery('#messages').prepend(li);
+            });
+
+        });
+    });
+</script>
 </body>
 </html>

@@ -2,6 +2,6 @@
   "name": "Chat",
   "version": "0.0.1",
   "dependencies": {
-    "websocket": "^1.0.10"
+    "socket.io": "^1.2.1"
   }
 }
