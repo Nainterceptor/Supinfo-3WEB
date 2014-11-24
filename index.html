@@ -4,21 +4,20 @@
     <script src="jquery-2.1.1.min.js"></script>
     <script type="text/javascript">
         jQuery(function () {
-            var getMessages = function () {
-                console.log("fetch");
-                jQuery.getJSON("messages", function (data) {
-                    var list = "";
-                    data.forEach(function (message) {
-                        list += "<li>" + message + "</li>";
-                    });
-
-                    jQuery("#messages").html(list);
+            jQuery.getJSON("messages", function (data) {
+                var list = "";
+                data.forEach(function (message) {
+                    list += "<li>" + message + "</li>";
                 });
 
-                setTimeout(getMessages, 5000);
-            };
+                jQuery("#messages").html(list);
+            });
 
-            getMessages();
+            var source = new EventSource('/stream');
+            source.addEventListener('message', function (event) {
+                var element = jQuery('<li>' + event.data + '</li>');
+                jQuery("#messages").append(element);
+            });
 
             jQuery("#messageForm").on('submit', function (event) {
                 event.preventDefault();
