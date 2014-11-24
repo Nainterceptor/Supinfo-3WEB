@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Laboratoire Java</title>
+	<atom:link href="http://labo-java.net/feed/" rel="self" type="application/rss+xml" />
+	<link>http://labo-java.net</link>
+	<description>Laboratoire SUPINFO des technologies de l&#039;écosystème Java</description>
+	<lastBuildDate>Mon, 16 Sep 2013 09:45:47 +0000</lastBuildDate>
+	<language>fr-FR</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.5</generator>
+		<item>
+		<title>Grails partie 5 : Les contrôleurs et les vues</title>
+		<link>http://marseille.labo-java.net/2013/09/16/grails-partie-5-les-controleurs-et-les-vues/</link>
+		<comments>http://marseille.labo-java.net/2013/09/16/grails-partie-5-les-controleurs-et-les-vues/#comments</comments>
+		<pubDate>Mon, 16 Sep 2013 09:44:21 +0000</pubDate>
+		<dc:creator>Julien Torrielli</dc:creator>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[Tutoriels]]></category>
+		<category><![CDATA[controleur]]></category>
+		<category><![CDATA[grails]]></category>
+		<category><![CDATA[groovy]]></category>
+		<category><![CDATA[gsp]]></category>
+		<category><![CDATA[java]]></category>
+		<category><![CDATA[jee]]></category>
+		<category><![CDATA[redirection]]></category>
+		<category><![CDATA[requete]]></category>
+		<category><![CDATA[supinfo]]></category>
+		<category><![CDATA[tag]]></category>
+		<category><![CDATA[template]]></category>
+		<category><![CDATA[vue]]></category>
+
+		<guid isPermaLink="false">http://marseille.labo-java.net/?p=611</guid>
+		<description><![CDATA[Dans ce dernier article sur le framework Grails, nous allons voir en d&#233;tails le fonctionnement des contr&#244;leurs et des vues. Nous aborderons notamment les redirections et les templates.]]></description>
+		<wfw:commentRss>http://marseille.labo-java.net/2013/09/16/grails-partie-5-les-controleurs-et-les-vues/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Grails partie 4 : Les relations</title>
+		<link>http://marseille.labo-java.net/2013/09/03/grails-partie-4-les-relations/</link>
+		<comments>http://marseille.labo-java.net/2013/09/03/grails-partie-4-les-relations/#comments</comments>
+		<pubDate>Tue, 03 Sep 2013 09:39:52 +0000</pubDate>
+		<dc:creator>Julien Torrielli</dc:creator>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[Tutoriels]]></category>
+		<category><![CDATA[domain class]]></category>
+		<category><![CDATA[grails]]></category>
+		<category><![CDATA[groovy]]></category>
+		<category><![CDATA[java]]></category>
+		<category><![CDATA[jee]]></category>
+		<category><![CDATA[many-to-many]]></category>
+		<category><![CDATA[many-to-one]]></category>
+		<category><![CDATA[one-to-many]]></category>
+		<category><![CDATA[one-to-one]]></category>
+		<category><![CDATA[relation]]></category>
+		<category><![CDATA[scaffolding]]></category>
+		<category><![CDATA[supinfo]]></category>
+
+		<guid isPermaLink="false">http://marseille.labo-java.net/?p=553</guid>
+		<description><![CDATA[Dans ce nouvel article sur le framework Grails, nous allons apprendre &#224; impl&#233;menter des relations entre objets. Nous verrons les quatre types de relation existants et les appliquerons &#224; notre application RaceTrack.]]></description>
+		<wfw:commentRss>http://marseille.labo-java.net/2013/09/03/grails-partie-4-les-relations/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Grails partie 3 : La validation</title>
+		<link>http://marseille.labo-java.net/2013/05/15/grails-partie-3-validation/</link>
+		<comments>http://marseille.labo-java.net/2013/05/15/grails-partie-3-validation/#comments</comments>
+		<pubDate>Wed, 15 May 2013 12:56:33 +0000</pubDate>
+		<dc:creator>Julien Torrielli</dc:creator>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[Tutoriels]]></category>
+		<category><![CDATA[closure]]></category>
+		<category><![CDATA[contrainte]]></category>
+		<category><![CDATA[domain class]]></category>
+		<category><![CDATA[erreur]]></category>
+		<category><![CDATA[generation]]></category>
+		<category><![CDATA[grails]]></category>
+		<category><![CDATA[groovy]]></category>
+		<category><![CDATA[java]]></category>
+		<category><![CDATA[jee]]></category>
+		<category><![CDATA[message]]></category>
+		<category><![CDATA[supinfo]]></category>
+		<category><![CDATA[validateur]]></category>
+		<category><![CDATA[validation]]></category>
+		<category><![CDATA[vue]]></category>
+
+		<guid isPermaLink="false">http://marseille.labo-java.net/?p=500</guid>
+		<description><![CDATA[Bienvenue dans la troisi&#232;me partie des tutoriels consacr&#233;s au framework Grails. Nous allons apprendre &#224; mettre en place des contraintes sur les attributs de nos classes, ainsi qu'&#224; personnaliser les messages d'erreur par d&#233;faut.]]></description>
+		<wfw:commentRss>http://marseille.labo-java.net/2013/05/15/grails-partie-3-validation/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Grails partie 2 : création d’une application basique</title>
+		<link>http://marseille.labo-java.net/2013/04/09/grails-partie-2-creation-application-basique/</link>
+		<comments>http://marseille.labo-java.net/2013/04/09/grails-partie-2-creation-application-basique/#comments</comments>
+		<pubDate>Tue, 09 Apr 2013 14:20:25 +0000</pubDate>
+		<dc:creator>Julien Torrielli</dc:creator>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[Tutoriels]]></category>
+		<category><![CDATA[controleur]]></category>
+		<category><![CDATA[crud]]></category>
+		<category><![CDATA[domain class]]></category>
+		<category><![CDATA[generation]]></category>
+		<category><![CDATA[grails]]></category>
+		<category><![CDATA[groovy]]></category>
+		<category><![CDATA[java]]></category>
+		<category><![CDATA[jee]]></category>
+		<category><![CDATA[structure]]></category>
+		<category><![CDATA[supinfo]]></category>
+		<category><![CDATA[typage dynamique]]></category>
+		<category><![CDATA[vue]]></category>
+
+		<guid isPermaLink="false">http://marseille.labo-java.net/?p=358</guid>
+		<description><![CDATA[Bienvenue dans la deuxi&#232;me partie des tutoriels consacr&#233;s au framework Grails. Nous allons apprendre &#224; cr&#233;er une application simple de CRUD tr&#232;s facilement et rapidement. Nous allons &#233;galement voir quelques bases du langage Groovy.]]></description>
+		<wfw:commentRss>http://marseille.labo-java.net/2013/04/09/grails-partie-2-creation-application-basique/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Introduction à Grails</title>
+		<link>http://marseille.labo-java.net/2013/03/03/introduction-a-grails/</link>
+		<comments>http://marseille.labo-java.net/2013/03/03/introduction-a-grails/#comments</comments>
+		<pubDate>Sun, 03 Mar 2013 17:53:41 +0000</pubDate>
+		<dc:creator>Julien Torrielli</dc:creator>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[Tutoriels]]></category>
+		<category><![CDATA[crud]]></category>
+		<category><![CDATA[grails]]></category>
+		<category><![CDATA[groovy]]></category>
+		<category><![CDATA[java]]></category>
+		<category><![CDATA[jee]]></category>
+		<category><![CDATA[laboratoire java]]></category>
+		<category><![CDATA[mvc]]></category>
+		<category><![CDATA[plugin]]></category>
+		<category><![CDATA[scaffolding]]></category>
+		<category><![CDATA[supinfo]]></category>
+
+		<guid isPermaLink="false">http://marseille.labo-java.net/?p=191</guid>
+		<description><![CDATA[Le laboratoire de SUPINFO Marseille vous propose une introduction &#224; Grails. Cet article vous pr&#233;sentera le framework et vous indiquera comment l'installer.]]></description>
+		<wfw:commentRss>http://marseille.labo-java.net/2013/03/03/introduction-a-grails/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>A la découverte de Java EE 7</title>
+		<link>http://marseille.labo-java.net/2013/02/18/a-la-decouverte-de-java-ee-7/</link>
+		<comments>http://marseille.labo-java.net/2013/02/18/a-la-decouverte-de-java-ee-7/#comments</comments>
+		<pubDate>Mon, 18 Feb 2013 17:54:55 +0000</pubDate>
+		<dc:creator>Benjamin Prato</dc:creator>
+				<category><![CDATA[Articles]]></category>
+		<category><![CDATA[evolutions java]]></category>
+		<category><![CDATA[java]]></category>
+		<category><![CDATA[java 7]]></category>
+		<category><![CDATA[java ee]]></category>
+		<category><![CDATA[java ee 7]]></category>
+		<category><![CDATA[java enterprise edition]]></category>
+		<category><![CDATA[java enterprise edition 7]]></category>
+		<category><![CDATA[jee]]></category>
+		<category><![CDATA[laboratoire java]]></category>
+		<category><![CDATA[supinfo]]></category>
+		<category><![CDATA[websocket]]></category>
+
+		<guid isPermaLink="false">http://marseille.labo-java.net/?p=68</guid>
+		<description><![CDATA[La version 7 de Java Enterprise Edition approche &#224; grands pas !
+Le laboratoire Java de SUPINFO Marseille vous propose de d&#233;couvrir les nouveaut&#233;s apport&#233;es par cette sp&#233;cification.]]></description>
+		<wfw:commentRss>http://marseille.labo-java.net/2013/02/18/a-la-decouverte-de-java-ee-7/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+<enclosure url="" length="" type="" />
+		</item>
+		<item>
+		<title>Comment écrire du « Clean Code » ?</title>
+		<link>http://lille.labo-java.net/2013/02/13/software-craftsmanship-comment-ecrire-un-code-propre/</link>
+		<comments>http://lille.labo-java.net/2013/02/13/software-craftsmanship-comment-ecrire-un-code-propre/#comments</comments>
+		<pubDate>Wed, 13 Feb 2013 14:44:43 +0000</pubDate>
+		<dc:creator>Guillaume Mantopoulos</dc:creator>
+				<category><![CDATA[Articles]]></category>
+
+		<guid isPermaLink="false">http://lille.labo-java.net/?p=22</guid>
+		<description><![CDATA[Jeudi 7 F&#233;vrier &#224; eu lieu dans les locaux de SUPINFO Montr&#233;al une conf&#233;rence men&#233;e par Brice&#160;Argenson introduisant le mouvement &#8220;Software Craftsmanship&#8221; (traduisez Artisanat du Code). Il &#233;tait question de d&#233;finir le mouvement, ce qui constitue un software bien &#233;crit ainsi que de fournir de premiers &#233;l&#233;ments permettant de commencer &#224; &#233;crire un code propre. [...]]]></description>
+		<wfw:commentRss>http://lille.labo-java.net/2013/02/13/software-craftsmanship-comment-ecrire-un-code-propre/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Ouverture du site</title>
+		<link>http://labo-java.net/2013/02/02/ouverture-du-site-java/</link>
+		<comments>http://labo-java.net/2013/02/02/ouverture-du-site-java/#comments</comments>
+		<pubDate>Sat, 02 Feb 2013 18:37:34 +0000</pubDate>
+		<dc:creator>Benjamin Prato</dc:creator>
+				<category><![CDATA[Divers]]></category>
+
+		<guid isPermaLink="false">http://labo-java.net/?p=76</guid>
+		<description><![CDATA[C'est avec un grand plaisir que l'équipe du laboratoire Java vous présente son nouveau site.]]></description>
+		<wfw:commentRss>http://labo-java.net/2013/02/02/ouverture-du-site-java/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

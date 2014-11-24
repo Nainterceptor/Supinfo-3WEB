@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<rss version="2.0">
+	<channel>
+		<title>Les News du Laboratoire Microsoft</title>
+		<link>http://www.labo-microsoft.com/</link>
+		<description>Les News du Laboratoire Microsoft</description>
+		<language>fr-FR</language>
+		<copyright>Copyright 2008, Laboratoire Microsoft</copyright>
+		<managingEditor>labo-microsoft@supinfo.com</managingEditor>
+		<image>
+			<title>Icone Laboratoire Microsoft RSS</title>
+			<url>http://www.labo-microsoft.com/images/main/v6.jpg</url>
+			<link>http://www.labo-microsoft.com/</link>
+		</image>
+		<item>
+			<title><![CDATA[Les Journées SQL Server 2013]]></title>
+			<link>http://www.labo-microsoft.com/news-29437-journees-SQL-Server-2013.html</link>
+			<description><![CDATA[
+La 3e &eacute;dition des journ&eacute;es SQL Server, organis&eacute;es par le GUSS, auront lieu le 2 et 3 d&eacute;cembre 2013 au centre des conf&eacute;rences Microsoft &agrave; Issy-les-Moulineaux...]]></description> 
+			<pubDate>Tue, 19 Nov 2013 17:00:58 +0100</pubDate>
+			<author>labo-microsoft@supinfo.com (Vincent MANCHEC)</author>
+			<category>Actualité</category>
+		</item>
+		<item>
+			<title><![CDATA[Rebuild à Nantes le 3 Octobre!]]></title>
+			<link>http://www.labo-microsoft.com/news-29415-Build-Communautes-Nantes-2013.html</link>
+			<description><![CDATA[
+Les annonces de la Microsoft Build vous int&eacute;ressent ? Cet &eacute;v&eacute;nement est fait pour vous !
+L&rsquo;association Les Communaut&eacute;s Microsoft organise le 3 Octobre &agrave; Nan...]]></description> 
+			<pubDate>Mon, 16 Sep 2013 16:02:33 +0100</pubDate>
+			<author>labo-microsoft@supinfo.com (Vincent BIRET)</author>
+			<category>Actualité</category>
+		</item>
+		<item>
+			<title><![CDATA[Un nouvel ouvrage sur System Center 2012 Configuration Manager]]></title>
+			<link>http://www.labo-microsoft.com/news-29413-sccm2012-eni.html</link>
+			<description><![CDATA[
+Nous avons l&rsquo;honneur de vous annoncer la sortie officielle et la disponibilit&eacute; imm&eacute;diate d&rsquo;un livre appel&eacute;&nbsp;&laquo; System Center 2012 Configuration Manager (SCC...]]></description> 
+			<pubDate>Tue, 10 Sep 2013 19:13:35 +0100</pubDate>
+			<author>labo-microsoft@supinfo.com (Jean-Sébastien DUCHÊNE)</author>
+			<category>System Center</category>
+		</item>
+		<item>
+			<title><![CDATA[#mstechdays suivez les Techdays 2013 en live!]]></title>
+			<link>http://www.labo-microsoft.com/news-29391-mstechdays2013.html</link>
+			<description><![CDATA[Si comme moi vous n&#39;avez&nbsp;pas la chance de pouvoir assister aux techdays vous pouvez les suivre en live directement depuis le site du laboratoire gr&acirc;ce &agrave; la techdays TV.
+(La diff...]]></description> 
+			<pubDate>Fri, 8 Feb 2013 18:10:18 +0100</pubDate>
+			<author>labo-microsoft@supinfo.com (Vincent BIRET)</author>
+			<category>Actualité</category>
+		</item>
+		<item>
+			<title><![CDATA[Microsoft possède un nouveau logo]]></title>
+			<link>http://www.labo-microsoft.com/news-29352-Microsoft_possède_un_nouveau_logo.html</link>
+			<description><![CDATA[
+Microsoft a d&eacute;voil&eacute; sur son site et dans ses boutiques am&eacute;ricaines son nouveau logo compos&eacute; de quatre carr&eacute;s color&eacute;s suivi du nom Microsoft avec la police d...]]></description> 
+			<pubDate>Sun, 26 Aug 2012 11:59:41 +0100</pubDate>
+			<author>labo-microsoft@supinfo.com (Olivier DA SILVA)</author>
+			<category>Actualité</category>
+		</item>
+		<item>
+			<title><![CDATA[Exchange 2013 Preview - Nouveautés]]></title>
+			<link>http://www.labo-microsoft.com/news-29334-Exchange-2013-Preview-News.html</link>
+			<description><![CDATA[
+&nbsp;
+L&#39;&eacute;quipe produit Exchange a d&eacute;voil&eacute; une Preview (Beta) de la prochaine version d&#39;Exchange. Un grand nombre de nouveaut&eacute;s ont &eacute;t&eacute; apport&eacu...]]></description> 
+			<pubDate>Wed, 18 Jul 2012 14:54:26 +0100</pubDate>
+			<author>labo-microsoft@supinfo.com (Jason CROSA)</author>
+			<category>Actualité</category>
+		</item>
+		<item>
+			<title><![CDATA[Soutenez CapStreet qui part en Australie représenter la France et SUPINFO lors de l''imagine Cup]]></title>
+			<link>http://www.labo-microsoft.com/news-29330-IC2012-Capstreet.html</link>
+			<description><![CDATA[La finale de l&rsquo;Imagine Cup 2012 approche et comme tous les ans, SUPINFO sera repr&eacute;sent&eacute;e lors de la finale internationale, qui aura lieu cette ann&eacute;e &agrave; Sydney.
+Cette ...]]></description> 
+			<pubDate>Sun, 24 Jun 2012 15:09:13 +0100</pubDate>
+			<author>labo-microsoft@supinfo.com (Vincent BIRET)</author>
+			<category>Actualité</category>
+		</item>
+		<item>
+			<title><![CDATA[Windows 8 Release Preview ]]></title>
+			<link>http://www.labo-microsoft.com/news-29327-windows-8-RP.html</link>
+			<description><![CDATA[Microsoft a rendu publique Windows 8 Release Preview depuis ce soir. 
+
+Toutes les informations et les langues disponibles se trouvent ici :
+
+http://windows.microsoft.com/en-GB/windows-8/iso 
+
+Si...]]></description> 
+			<pubDate>Thu, 31 May 2012 23:22:08 +0100</pubDate>
+			<author>labo-microsoft@supinfo.com (Florent APPOINTAIRE)</author>
+			<category>Actualité</category>
+		</item>
+		<item>
+			<title><![CDATA[Microsoft Day spéciale développeur à Supinfo Paris]]></title>
+			<link>http://www.labo-microsoft.com/news-29324-MSDay-Supinfo-paris.html</link>
+			<description><![CDATA[Nous avons le plaisir d&#39;accueillir Microsoft le 29 mai 2012 pour une journ&eacute;e Microsoft Day Sp&eacute;ciale d&eacute;veloppeur.
+Au programme:
+10h-11h : Cr&eacute;er un design Metro
+11h-12...]]></description> 
+			<pubDate>Wed, 16 May 2012 13:08:08 +0100</pubDate>
+			<author>labo-microsoft@supinfo.com (Davy PATHAMMAVONG)</author>
+			<category>Actualité</category>
+		</item>
+		<item>
+			<title><![CDATA[Conférence DirectAccess par Benoit SAUTIERE de la société EXAKIS]]></title>
+			<link>http://www.labo-microsoft.com/news-29314-conference-da-benoit-sautiere-exakis.html</link>
+			<description><![CDATA[Nous avons le plaisir de vous annoncer que la soci&eacute;t&eacute; EXAKIS&nbsp; va intervenir le 30 mai de 18h &agrave; 20h, pour la pr&eacute;sentation de DirectAccess. C&rsquo;est Benoit SAUTIERE e...]]></description> 
+			<pubDate>Thu, 10 May 2012 23:07:36 +0100</pubDate>
+			<author>labo-microsoft@supinfo.com (Davy PATHAMMAVONG)</author>
+			<category>Actualité</category>
+		</item>
+	</channel>
+</rss>
