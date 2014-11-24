@@ -1,68 +1,85 @@
 <!Doctype html>
-<html>
+<html manifest="manifest.appcache">
 <head>
-    <title>Chat</title>
-    <style>
-        .chat {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-<div class="connection">
-    <form id="connection">
-        <input type="text" id="username" placeholder="Username"/>
-        <input type="submit" value="Connect !"/>
-    </form>
-</div>
+    <script src="jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function () {
+            var makeListWithMessages = function (messages) {
+                var list = "";
+                messages.forEach(function (message) {
+                    list += "<li>" + message + "</li>";
+                });
 
-<div class="chat">
-    <form id="messageForm">
-        <input type="text" id="message" placeholder="Message..."/>
-        <input type="submit" value="Send !"/>
-    </form>
-    <ul id="messages">
-    </ul>
-</div>
+                jQuery("#messages").html(list);
+            };
 
-<script src="/socket.io/socket.io.js"></script>
-<script src="jquery-2.1.1.min.js"></script>
-<script>
-    jQuery(document).ready(function () {
-        var socket = io.connect('http://localhost');
+            var getMessagesFromStorage = function () {
+                if (localStorage.messages == null) {
+                    return [];
+                } else {
+                    return JSON.parse(localStorage.messages);
+                }
+            };
 
-        jQuery('#connection').on('submit', function (event) {
-            event.preventDefault();
+            var saveMessagesToStorage = function (messages) {
+                localStorage.messages = JSON.stringify(messages);
+            };
 
-            var username = jQuery('#username').val();
-            if (username == '') return;
-            socket.emit('join', username);
+            var pushMessageToStorage = function (message) {
+                var messages = getMessagesFromStorage();
+                messages.push(message);
+                saveMessagesToStorage(messages);
+            };
 
-            jQuery('.connection').hide();
-            jQuery('.chat').show();
+            jQuery.getJSON("messages", function (data) {
+                saveMessagesToStorage(data);
 
-            jQuery('#messageForm').on('submit', function (event) {
+                makeListWithMessages(data);
+            }).error(function () {
+                var messages = getMessagesFromStorage();
+                makeListWithMessages(messages);
+            });
+
+            var source = new EventSource('/stream');
+            source.addEventListener('message', function (event) {
+                var element = jQuery('<li>' + event.data + '</li>');
+                jQuery("#messages").append(element);
+
+                pushMessageToStorage(event.data);
+            });
+
+            jQuery("#messageForm").on('submit', function (event) {
                 event.preventDefault();
 
-                var message = jQuery('#message').val();
-                if (message == '') return;
-                socket.emit('message', {name: username, message: message});
-            });
+                var message = JSON.stringify({
+                    message: jQuery("#message").val()
+                });
 
-            socket.on('join', function (data) {
-                var li = jQuery('<li>').text(data + ' joined !');
+                jQuery.ajax({
+                    url: 'message',
+                    type: 'POST',
+                    data: message,
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    success: function () {
+                        pushMessageToStorage(message);
+                    }
+                });
 
-                jQuery('#messages').prepend(li);
-            });
-
-            socket.on('message', function (data) {
-                var li = jQuery('<li>').text(data.name + ' : ' + data.message);
-
-                jQuery('#messages').prepend(li);
             });
 
         });
-    });
-</script>
+    </script>
+</head>
+<body>
+<ul id="messages">
+
+</ul>
+
+<form id="messageForm">
+    <label for="message">Message : </label>
+    <input type="text" id="message"/>
+    <input type="submit"/>
+</form>
 </body>
 </html>

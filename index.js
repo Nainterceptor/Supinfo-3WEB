@@ -1,34 +1,65 @@
-var app = require('http').createServer(handler)
-    , io = require('socket.io').listen(app)
-    , fs = require('fs');
+var http = require('http');
+var fs = require('fs');
 
-app.listen(1337);
+var messages = [];
 
-function handler(req, res) {
-    if (req.url == '/jquery-2.1.1.min.js') {
-        fs.readFile(__dirname + '/jquery-2.1.1.min.js',
-            function (err, data) {
-                res.writeHead(200);
-                res.end(data);
-            });
+var responses = [];
+
+http.createServer(function (request, response) {
+
+    if (request.url == '/messages') {
+        response.end(JSON.stringify(messages));
+    }
+
+    else if (request.url == '/message') {
+        var message = "";
+
+        request.on('data', function (datas) {
+            message += datas;
+        });
+
+        request.on('end', function () {
+            try {
+                newMessage = JSON.parse(message);
+                messages.push(newMessage.message);
+                console.log(newMessage.message);
+                response.end();
+
+                responses.forEach(function (aReponse) {
+                    aReponse.write('data: ' + newMessage.message + '\n\n');
+                });
+            }
+            catch (e) {
+                response.end();
+            }
+        });
+    }
+
+    else if (request.url == '/stream') {
+        response.writeHead(200, {
+            'Content-Type': 'text/event-stream',
+            'Cache-Control': 'no-cache',
+            'Connection': 'keep-alive'
+        });
+        response.write("retry: 10000\n");
+
+        responses.push(response);
+    }
+
+    else if (request.url == '/jquery-2.1.1.min.js') {
+        fs.readFile('jquery-2.1.1.min.js', function (err, data) {
+            response.end(data);
+        })
+    }
+    else if (request.url == '/manifest.appcache') {
+        fs.readFile('manifest.appcache', function (err, data) {
+            response.end(data);
+        })
     }
     else {
-        fs.readFile(__dirname + '/index.html',
-            function (err, data) {
-                res.writeHead(200);
-                res.end(data);
-            });
+        fs.readFile('index.html', function (err, data) {
+            response.end(data);
+        })
     }
-}
 
-io.sockets.on('connection', function (socket) {
-    socket.on('join', function (data) {
-        io.sockets.emit('join', data);
-    });
-    socket.on('message', function (data) {
-        io.sockets.emit('message', data);
-    });
-    socket.on('idle', function (data) {
-        io.sockets.emit('idle', data);
-    });
-});
+}).listen(1337);
