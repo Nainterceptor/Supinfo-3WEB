@@ -3,41 +3,26 @@
 <head>
     <script src="jquery-2.1.1.min.js"></script>
     <script type="text/javascript">
-        jQuery(function () {
-            jQuery.getJSON("messages", function (data) {
-                var list = "";
-                data.forEach(function (message) {
-                    list += "<li>" + message + "</li>";
-                });
+        jQuery(document).ready(function () {
+            var websocket = new WebSocket('ws://localhost:1337', 'echo-protocol');
 
-                jQuery("#messages").html(list);
-            });
-
-            var source = new EventSource('/stream');
-            source.addEventListener('message', function (event) {
-                var element = jQuery('<li>' + event.data + '</li>');
+            websocket.onmessage = function (evt) {
+                var element = jQuery('<li>' + evt.data + '</li>');
                 jQuery("#messages").append(element);
+            };
+
+            jQuery.getJSON('messages', function (data) {
+                var list = '';
+                data.forEach(function (message) {
+                    list += '<li>' + message + '</li>';
+                });
+                jQuery('#messages').html(list);
             });
 
             jQuery("#messageForm").on('submit', function (event) {
                 event.preventDefault();
-
-                var message = JSON.stringify({
-                    message: jQuery("#message").val()
-                });
-
-                console.log(message);
-
-                jQuery.ajax({
-                    url: 'message',
-                    type: 'POST',
-                    data: message,
-                    contentType: 'application/json; charset=utf-8',
-                    dataType: 'json'
-                });
-
+                websocket.send(jQuery("#message").val());
             });
-
         });
     </script>
 </head>

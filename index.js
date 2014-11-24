@@ -1,11 +1,12 @@
 var http = require('http');
 var fs = require('fs');
+var WebSocketServer = require('websocket').server;
 
 var messages = [];
 
 var responses = [];
 
-http.createServer(function (request, response) {
+var webServer = http.createServer(function (request, response) {
 
     if (request.url == '/messages') {
         response.end(JSON.stringify(messages));
@@ -20,7 +21,7 @@ http.createServer(function (request, response) {
 
         request.on('end', function () {
             try {
-                newMessage = JSON.parse(message);
+                var newMessage = JSON.parse(message);
                 messages.push(newMessage.message);
                 response.end();
 
@@ -34,17 +35,6 @@ http.createServer(function (request, response) {
         });
     }
 
-    else if (request.url == '/stream') {
-        response.writeHead(200, {
-            'Content-Type': 'text/event-stream',
-            'Cache-Control': 'no-cache',
-            'Connection': 'keep-alive'
-        });
-        response.write("retry: 10000\n");
-
-        responses.push(response);
-    }
-
     else if (request.url == '/jquery-2.1.1.min.js') {
         fs.readFile('jquery-2.1.1.min.js', function (err, data) {
             response.end(data);
@@ -56,4 +46,28 @@ http.createServer(function (request, response) {
         })
     }
 
-}).listen(1337);
+});
+webServer.listen(1337);
+
+var wsServer = new WebSocketServer({
+    httpServer: webServer,
+    autoAcceptConnections: false
+});
+var connections = [];
+wsServer.on('request', function (req) {
+    var connection = req.accept('echo-protocol', req.origin);
+    console.log(new Date() + ' Peer ' + connection.remoteAddress + ' connected.');
+
+    connections.push(connection);
+    console.log(new Date() + ' ' + connections.length + ' peers connected.');
+
+    connection.on('message', function (message) {
+        var msg = message.utf8Data;
+        console.log(new Date() + ' Received message: ' + msg);
+        messages.push(msg);
+
+        connections.forEach(function (destination) {
+            destination.sendUTF(msg);
+        });
+    });
+});
