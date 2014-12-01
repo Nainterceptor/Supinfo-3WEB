@@ -1,0 +1,17 @@
+{
+  "name": "Simple Chat App",
+  "description": "A simple chat application",
+  "version": "1.0.0",
+  "icons": { "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "app": {
+    "background": {
+      "scripts": [ "app.js" ]
+    }
+  },
+  "permissions": [
+    "storage",
+    "notifications"
+  ],
+  "default_locale": "en",
+  "manifest_version": 2
+}
