@@ -1,0 +1,22 @@
+{
+  "name": "supinfo-3web",
+  "version": "1.0.0",
+  "description": "Course project for supinfo 3WEB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nainterceptor/Supinfo-3WEB.git"
+  },
+  "keywords": [
+    "http"
+  ],
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/Nainterceptor/Supinfo-3WEB/issues"
+  },
+  "homepage": "https://github.com/Nainterceptor/Supinfo-3WEB#readme"
+}
