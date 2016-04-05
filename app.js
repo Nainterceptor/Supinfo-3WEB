@@ -1,26 +1,30 @@
 "use strict";
 
 let http = require('http');
+let qs = require('querystring');
+let fs = require('fs');
 
 http.createServer(function(request, response) {
     if ('GET' === request.method && '/form' === request.url) {
         response.writeHead(200, {'Content-Type': 'text/html'});
-        response.write('<!doctype html>');
-        response.write('<html><body>');
-        response.write('<form method="POST" action="/completed">');
-        response.write('<input type="text" name="data1"/>');
-        response.write('<input type="text" name="data2"/>');
-        response.write('<input type="text" name="data3"/>');
-        response.write('<input type="text" name="data4"/>');
-        response.write('<input type="submit" value="Send"/>');
-        response.end('</form></body></html>');
+        fs.readFile("form.html", function(err, data) {
+            // Please considere moving this read outside of the createServer,
+            // to improve perfs by decreasing number of i/o.
+            // We are keeping this pattern here for readability.
+            if (err) throw err;
+            response.end(data.toString());
+        });
         return;
     }
 
     if ('POST' === request.method && '/completed' === request.url) {
-        response.writeHead(200);
-        request.on("data", function(chunk) {response.write(chunk)});
-        request.on("end", function() {response.end();});
+        let data = '';
+        request.on('data', function(chunk) {data += chunk});
+        request.on('end', function() {
+            response.writeHead(200, {"content-type": "application/json"});
+            let object = qs.parse(data);
+            response.end(JSON.stringify(object));
+        });
         return;
     }
 
