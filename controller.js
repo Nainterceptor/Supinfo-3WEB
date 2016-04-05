@@ -11,21 +11,12 @@ var exports = module.exports = {
         next();
     },
     getIndex: function(request, response) {
-        fs.readFile("index.html", function(err, data) {
-            if (err) throw err;
-            response.writeHead(200);
-            response.end(data.toString());
-        });
+        response.render('index.jade');
     },
     getForm: function(request, response) {
-        fs.readFile("form.html", function(err, data) {
-            if (err) throw err;
-            response.writeHead(200);
-            response.end(data.toString());
-        });
+        response.render('form.jade');
     },
     postForm: function(request, response) {
-        response.writeHead(200);
-        response.json({result: "Success"});
+        response.render('formReturn.jade', {data: request.body});
     }
  };

@@ -1,0 +1,11 @@
+doctype
+html
+    head
+        title Index
+    body
+        h1 My Amazing List
+        ul
+            each val, key in data
+                li
+                    span= key + ' -> ' + val
+                    button(onclick="this.parentNode.remove()") delete
