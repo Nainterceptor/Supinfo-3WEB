@@ -8,4 +8,18 @@ html
             each val, key in data
                 li
                     span= key + ' -> ' + val
-                    button(onclick="this.parentNode.remove()") delete
+                    button(data-id=key) delete
+        script(type="text/javascript", src="//code.jquery.com/jquery-1.12.0.min.js")
+        script(type="text/javascript").
+            jQuery(document).ready(function() {
+                jQuery("[data-id]").on("click", function() {
+                    var self = this;
+                    jQuery.ajax({
+                        url: "/form/" + jQuery(this).attr('data-id'),
+                        type: 'DELETE',
+                        success: function() {
+                            jQuery(self).parent().remove();
+                        }
+                    });
+                });
+            });

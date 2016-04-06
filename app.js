@@ -5,6 +5,7 @@ let express = require('express');
 let morgan = require('morgan');
 let bodyParser = require('body-parser');
 let cookieSession = require('cookie-session');
+require('./config/mongoose.js');
 let controller = require('./controller.js');
 let app = express();
 
@@ -23,5 +24,6 @@ app.get("/", controller.getIndex);
 app.get("/index", controller.getIndex);
 app.get("/form", controller.getForm);
 app.post("/form", bodyParser.urlencoded(), controller.postForm);
+app.delete("/form/:entry", controller.deleteEntry);
 
 app.listen(1337);
