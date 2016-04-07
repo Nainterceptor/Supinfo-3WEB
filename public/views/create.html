@@ -1,0 +1,18 @@
+<h2 class="sub-header">New</h2>
+<form ng-model="user" ng-submit="create(user)">
+    <div class="form-group">
+        <label for="firstname">Firstname</label>
+        <input id="firstname" ng-model="user.firstname" type="text" class="form-control" placeholder="Firstname" />
+    </div>
+    <div class="form-group">
+        <label for="lastname">Lastname</label>
+        <input id="lastname" ng-model="user.lastname" type="text" class="form-control" placeholder="Lastname" />
+    </div>
+    <div class="form-group">
+        <label for="website">Website</label>
+        <input id="website" ng-model="user.website" type="text" class="form-control" placeholder="Website" />
+    </div>
+    <div class="form-group">
+        <button type="submit">Send</button>
+    </div>
+</form>

@@ -1,0 +1,27 @@
+
+<h2 class="sub-header">List</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Full name</th>
+            <th>Created At</th>
+            <th>Website</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.fullname }}</td>
+            <td>{{user.createdAt | date:"medium"}}</td>
+            <td>{{ user.website }}</td>
+            <td>
+                <button class="btn btn-danger" ng-click="removeUser(user)">Remove</button>
+                <a class="btn btn-primary" ui-sref="app.edit({id: user.id})">Edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

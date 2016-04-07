@@ -1,0 +1,21 @@
+{
+  "name": "angularjs",
+  "homepage": "https://github.com/Nainterceptor/Supinfo-3WEB",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "bootstrap": "^3.3.6",
+    "angular-bootstrap": "^1.3.1",
+    "angular-ui-router": "^0.2.18"
+  }
+}
