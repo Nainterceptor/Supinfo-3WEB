@@ -10,11 +10,45 @@
 </head>
 <body>
     <div ng-controller="ProductsCtrl">
-        <ul>
-            <li ng-repeat="product in products">
-                {{product.name}} : {{product.price }} ; {{product.description}} <button ng-click="removeProduct(product)">Delete</button>
-            </li>
-        </ul>
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <th>Orders</th>
+                <th>
+                    <button ng-click="order='name'">NameASC</button><br />
+                    <button ng-click="order='-name'">NameDESC</button>
+                </th>
+                <th>
+                    <button ng-click="order='price'">PriceASC</button><br />
+                    <button ng-click="order='-price'">PriceDESC</button>
+                </th>
+                <th>
+                    <button ng-click="order='description'">DescriptionASC</button><br />
+                    <button ng-click="order='-description'">DescriptionDESC</button>
+                </th>
+                <th>
+                    <input type="number" ng-model="limit" placeholder="Limit list"/>
+                    <input type="text" ng-model="search" placeholder="Search in list"/>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products | filter:search | orderBy:order | limitTo: limit">
+                    <td></td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.description}}</td>
+                    <td><button ng-click="removeProduct(product)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
         <ul>
             <li ng-repeat="product in products">
                 <input type="text" placeholder="Name" ng-model="product.name" />
